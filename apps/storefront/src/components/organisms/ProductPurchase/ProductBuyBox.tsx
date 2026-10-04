@@ -35,9 +35,11 @@ const TRUST_POINTS = [
 
 export const ProductBuyBox = ({
   locale,
+  rating,
   children,
 }: {
   locale: string
+  rating?: ReactNode
   children?: ReactNode
 }) => {
   const { product, variant, selectedOptions, selectedOffer } = useProductPurchase()
@@ -107,15 +109,24 @@ export const ProductBuyBox = ({
       >
         {product.title}
       </h1>
+      {rating}
 
       <div className="mt-5 border-t border-border pt-5">
         {amount !== null ? (
-          <p
-            className="font-display text-[2.75rem] font-medium leading-none tabular-nums text-heading"
-            data-testid="product-price"
-          >
-            {convertToLocale({ amount, currency_code: currency })}
-          </p>
+          <>
+            <p
+              className="font-display text-[2.75rem] font-medium leading-none tabular-nums text-heading"
+              data-testid="product-price"
+            >
+              {convertToLocale({ amount, currency_code: currency })}
+            </p>
+            <p className="mt-2 text-small text-muted" data-testid="product-price-vat-note">
+              Incl. VAT, plus{" "}
+              <LocalizedClientLink href="/shipping" className="underline underline-offset-2 hover:text-fg">
+                shipping
+              </LocalizedClientLink>
+            </p>
+          </>
         ) : (
           <p className="text-body text-muted" data-testid="product-price-unavailable">
             Not available in your region

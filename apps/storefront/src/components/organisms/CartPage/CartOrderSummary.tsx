@@ -76,7 +76,7 @@ export const CartOrderSummary = ({
         <span className="font-mono text-h2 font-medium tabular-nums text-heading">{money(cart.total)}</span>
       </div>
       {!!cart.tax_total && (
-        <p className="mt-1 text-eyebrow text-muted">Includes {money(cart.tax_total)} tax</p>
+        <p className="mt-1 text-eyebrow text-muted">Includes {money(cart.tax_total)} VAT</p>
       )}
 
       <div className="mt-5">

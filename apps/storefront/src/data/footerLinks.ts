@@ -1,16 +1,18 @@
 const links = {
   customerServices: [
-    { label: 'FAQs', path: '#' },
-    { label: 'Track Order', path: '#' },
-    { label: 'Returns', path: '#' },
-    { label: 'Delivery', path: '#' },
-    { label: 'Payment', path: '#' },
+    { label: 'FAQs', path: '/faq' },
+    { label: 'Track order', path: '/user/orders' },
+    { label: 'Returns & refunds', path: '/returns' },
+    { label: 'Delivery', path: '/shipping' },
+    { label: 'Payment', path: '/payment' },
   ],
   about: [
-    { label: 'About us', path: '#' },
-    { label: 'Blog', path: '#' },
-    { label: 'Privacy Policy', path: '#' },
-    { label: 'Terms & Conditions', path: '#' },
+    { label: 'About us', path: '/about' },
+    { label: 'Seller terms', path: '/seller-terms' },
+    { label: 'Terms & conditions', path: '/terms' },
+    { label: 'Privacy policy', path: '/privacy' },
+    { label: 'Cookie policy', path: '/cookies' },
+    { label: 'Imprint', path: '/imprint' },
   ],
   connect: [
     { label: 'Facebook', path: 'https://facebook.com' },

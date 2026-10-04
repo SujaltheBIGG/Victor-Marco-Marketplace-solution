@@ -2,6 +2,7 @@ import Image from "next/image"
 import { HttpTypes } from "@medusajs/types"
 
 import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
+import { WishlistButton } from "@/components/molecules/WishlistButton/WishlistButton"
 import { getProductPrice } from "@/lib/helpers/get-product-price"
 
 export const ProductTileView = ({
@@ -32,6 +33,12 @@ export const ProductTileView = ({
         sizes="(min-width: 1024px) 248px, (min-width: 640px) 30vw, 44vw"
         className="object-cover"
       />
+      {handle && (
+        <WishlistButton
+          item={{ handle, title, thumbnail, price }}
+          className="absolute right-2 top-2 z-10"
+        />
+      )}
     </div>
     <div className="flex flex-1 flex-col gap-1.5 p-3">
       <h3 className="text-small font-medium text-fg">

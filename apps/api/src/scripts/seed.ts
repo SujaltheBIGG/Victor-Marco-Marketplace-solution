@@ -118,7 +118,7 @@ export default async function seedDemoData({ container }: ExecArgs) {
     input: {
       selector: { id: store.id },
       update: {
-        name: 'Mercur Marketplace',
+        name: 'Fleek Marketplace',
         default_sales_channel_id: defaultSalesChannel[0].id,
       },
     },
@@ -268,11 +268,18 @@ export default async function seedDemoData({ container }: ExecArgs) {
       "Smart Home",
       "Wearables",
       "Cameras and Drones",
+      "Laptops",
     ],
     "Home and Living": ["Furniture", "Home Decor", "Kitchen and Dining"],
     Fashion: ["Clothing", "Shoes", "Bags", "Accessories"],
-    "Beauty and Wellness": ["Makeup"],
-    "Sports and Outdoors": ["Ball Sports", "Bats and Rackets", "Training Gear"],
+    "Beauty and Wellness": ["Makeup", "Skincare", "Fragrance", "Bath and Body"],
+    "Sports and Outdoors": [
+      "Ball Sports",
+      "Bats and Rackets",
+      "Training Gear",
+      "Yoga and Pilates",
+      "Outdoor and Camping",
+    ],
   };
   const parentNames = Object.keys(CATEGORY_TREE);
   const childNames = Object.values(CATEGORY_TREE).flat();
@@ -479,7 +486,6 @@ export default async function seedDemoData({ container }: ExecArgs) {
         ]
       : []),
   ];
-  const PRIMARY_SELLER_EMAIL = SELLER_CONFIGS[0].email;
 
   // DiceBear renders a crisp initials avatar per seller name; Picsum returns a
   // deterministic photo for the same seed, so re-seeding is stable.
@@ -491,16 +497,12 @@ export default async function seedDemoData({ container }: ExecArgs) {
   const { data: existingSellers } = await query.graph({
     entity: "seller",
     fields: ["id"],
-    filters: { email: PRIMARY_SELLER_EMAIL },
+    filters: { name: SELLER_CONFIGS.map((config) => config.name) },
   });
 
-  if (existingSellers[0]) {
-    logger.info(
-      "Demo sellers already exist, skipping seller, product and offer seeding."
-    );
-    logger.info("Finished seeding.");
-    return;
-  }
+  // On an existing marketplace the seed only tops up the catalog: it reuses
+  // the demo sellers and adds products that are not in the store yet.
+  const topUp = Boolean(existingSellers[0]);
 
   const authModuleService = container.resolve(Modules.AUTH);
 
@@ -534,7 +536,37 @@ export default async function seedDemoData({ container }: ExecArgs) {
   };
   const sellers: SeededSeller[] = [];
 
-  for (const [index, sellerConfig] of SELLER_CONFIGS.entries()) {
+  if (topUp) {
+    for (const sellerConfig of SELLER_CONFIGS) {
+      const {
+        data: [existing],
+      } = (await query.graph({
+        entity: "seller",
+        fields: ["id", "name", "members.id", "stock_locations.id"],
+        filters: { name: sellerConfig.name },
+      })) as {
+        data: {
+          id: string;
+          name: string;
+          members?: { id: string }[] | null;
+          stock_locations?: { id: string }[] | null;
+        }[];
+      };
+      const memberId = existing?.members?.[0]?.id;
+      const stockLocationId = existing?.stock_locations?.[0]?.id;
+      if (existing && memberId && stockLocationId) {
+        sellers.push({
+          id: existing.id,
+          name: existing.name,
+          memberId,
+          stockLocationId,
+          shippingProfileId: sharedShippingProfileId,
+        });
+      }
+    }
+  }
+
+  for (const [index, sellerConfig] of (topUp ? [] : SELLER_CONFIGS).entries()) {
     logger.info(`Seeding seller "${sellerConfig.name}"...`);
 
     let authIdentityId: string;
@@ -728,12 +760,14 @@ export default async function seedDemoData({ container }: ExecArgs) {
     logger.info(`Finished seeding seller "${sellerConfig.name}".`);
   }
 
+  if (!sellers.length) {
+    logger.warn("No demo sellers found, skipping product seeding.");
+    return;
+  }
   const primarySeller = sellers[0];
   logger.info(`Finished seeding ${sellers.length} sellers.`);
 
   logger.info("Seeding product data...");
-
-  const catalog = marketplaceSeedCatalog;
 
   const slugify = (value: string) =>
     value
@@ -742,7 +776,21 @@ export default async function seedDemoData({ container }: ExecArgs) {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
 
-  const usedHandles = new Set<string>();
+  const { data: existingProducts } = await query.graph({
+    entity: "product",
+    fields: ["handle"],
+  });
+  const usedHandles = new Set<string>(
+    existingProducts.map((product) => product.handle as string)
+  );
+  const catalog = marketplaceSeedCatalog.filter(
+    (item) => !usedHandles.has(slugify(item.title))
+  );
+  if (!catalog.length) {
+    logger.info("Catalog is up to date.");
+    logger.info("Finished seeding.");
+    return;
+  }
   const uniqueHandle = (title: string) => {
     const base = slugify(title);
     let handle = base;

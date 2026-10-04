@@ -8,12 +8,16 @@ import { ProductBuyBox } from "@/components/organisms/ProductPurchase/ProductBuy
 import { ProductImageGallery } from "@/components/organisms/ProductPurchase/ProductImageGallery"
 import { ProductOffersList } from "@/components/organisms/ProductPurchase/ProductOffersList"
 import { ProductPurchaseProvider } from "@/components/organisms/ProductPurchase/ProductPurchaseProvider"
+import { WishlistButton } from "@/components/molecules/WishlistButton/WishlistButton"
 import { HomeProductRail } from "@/components/sections/HomeProductRail/HomeProductRail"
+import { ProductReviews, RatingSummary } from "@/components/sections/ProductReviews/ProductReviews"
 import { retrieveCustomer } from "@/lib/data/customer"
 import { listOffers } from "@/lib/data/offers"
 import { PRODUCT_DETAIL_FIELDS } from "@/lib/data/product-fields"
 import { listProducts } from "@/lib/data/products"
+import { getProductReviews } from "@/lib/data/reviews"
 import { getBuyboxWinner, rankOffers, StoreOffer } from "@/lib/helpers/buybox"
+import { getProductPrice } from "@/lib/helpers/get-product-price"
 import { isRichText, sanitizeRichText } from "@/lib/helpers/sanitize-rich-text"
 
 const COMPLIANCE = [
@@ -59,7 +63,7 @@ export const ProductDetailsPage = async ({
 
   const category = product.categories?.[0]
 
-  const [{ offers }, customer, related] = await Promise.all([
+  const [{ offers }, customer, related, reviews] = await Promise.all([
     listOffers({ productId: product.id, countryCode: locale }),
     retrieveCustomer(),
     category
@@ -71,6 +75,7 @@ export const ProductDetailsPage = async ({
           response.products.filter((p) => p.id !== product.id).slice(0, 10)
         )
       : Promise.resolve([]),
+    getProductReviews(product.id),
   ])
 
   const storeOffers = offers as StoreOffer[]
@@ -96,7 +101,22 @@ export const ProductDetailsPage = async ({
 
         <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:gap-12">
           <ProductImageGallery images={product.images ?? []} title={product.title} />
-          <ProductBuyBox locale={locale}>
+          <ProductBuyBox
+            locale={locale}
+            rating={
+              reviews.count > 0 ? <RatingSummary average={reviews.average} count={reviews.count} /> : null
+            }
+          >
+            <WishlistButton
+              variant="full"
+              className="mt-5"
+              item={{
+                handle: product.handle ?? "",
+                title: product.title,
+                thumbnail: product.thumbnail,
+                price: getProductPrice({ product }).cheapestPrice?.calculated_price ?? null,
+              }}
+            />
             {customer && chatSeller && (
               <div className="mt-5">
                 <Chat
@@ -146,6 +166,8 @@ export const ProductDetailsPage = async ({
               </dl>
             </section>
           )}
+
+          <ProductReviews data={reviews} />
 
           <section aria-labelledby="compliance-heading" data-testid="product-compliance">
             <h2 id="compliance-heading" className={sectionHeading}>

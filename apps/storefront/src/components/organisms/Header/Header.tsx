@@ -8,6 +8,7 @@ import CountrySelector from "@/components/molecules/CountrySelector/CountrySelec
 import { HeaderSearch } from "@/components/molecules/HeaderSearch/HeaderSearch"
 import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
 import { MessageButton } from "@/components/molecules/MessageButton/MessageButton"
+import { WishlistLink } from "@/components/molecules/WishlistLink/WishlistLink"
 import { listCategories } from "@/lib/data/categories"
 import { listRegions } from "@/lib/data/regions"
 import { retrieveCustomer } from "@/lib/data/customer"
@@ -98,6 +99,7 @@ export const Header = async () => {
                 <span className="hidden lg:inline">Sign in</span>
               </LocalizedClientLink>
             )}
+            <WishlistLink />
             <CartDropdown />
           </div>
         </div>

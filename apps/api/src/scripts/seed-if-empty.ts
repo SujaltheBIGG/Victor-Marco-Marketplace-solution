@@ -1,23 +1,14 @@
 import { ExecArgs } from "@medusajs/framework/types"
-import { ContainerRegistrationKeys } from "@medusajs/framework/utils"
 
+import { ensureDemoReviews } from "../lib/demo-reviews"
+import { applyMarketplaceSettings } from "../lib/marketplace-settings"
 import seedDemoData from "./seed"
 
-// Seeds only an empty database, so it can run on every deploy.
+// Runs on every deploy: seeds an empty database, adds catalog products that
+// are not in the store yet, re-applies VAT, pricing and delivery settings and
+// gives unreviewed products and sellers a few demo reviews.
 export default async function seedIfEmpty(args: ExecArgs) {
-  const query = args.container.resolve(ContainerRegistrationKeys.QUERY)
-  const logger = args.container.resolve(ContainerRegistrationKeys.LOGGER)
-
-  const { data } = await query.graph({
-    entity: "product",
-    fields: ["id"],
-    pagination: { take: 1 },
-  })
-
-  if (data.length) {
-    logger.info("Catalog already present, skipping seed.")
-    return
-  }
-
   await seedDemoData(args)
+  await applyMarketplaceSettings(args.container)
+  await ensureDemoReviews(args.container)
 }

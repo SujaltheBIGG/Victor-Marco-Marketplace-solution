@@ -5,6 +5,7 @@ import { Button } from "@/components/atoms"
 import { HttpTypes } from "@medusajs/types"
 import { ProductVariants } from "@/components/molecules"
 import useGetAllSearchParams from "@/hooks/useGetAllSearchParams"
+import LocalizedClientLink from "@/components/molecules/LocalizedLink/LocalizedLink"
 import { getProductPrice } from "@/lib/helpers/get-product-price"
 import { convertToLocale } from "@/lib/helpers/money"
 import {
@@ -161,6 +162,14 @@ export const ProductDetailsHeader = ({
               <span className="label-md text-secondary pt-2 pb-4" data-testid="product-price-unavailable">
                 Not available in your region
               </span>
+            )}
+            {(hasOffer || (hasAnyPrice && variantPrice)) && (
+              <p className="text-eyebrow text-muted" data-testid="product-price-vat-note">
+                Incl. VAT, plus{" "}
+                <LocalizedClientLink href="/shipping" className="underline underline-offset-2">
+                  shipping
+                </LocalizedClientLink>
+              </p>
             )}
           </div>
         </div>
