@@ -225,6 +225,19 @@ export default async function seedDemoData({ container }: ExecArgs) {
     publishableApiKey = publishableApiKeyResult
   }
 
+  // A deployment can pin the token so the storefront, built before the seed
+  // runs, already knows it.
+  const fixedPublishableKey = process.env.SEED_PUBLISHABLE_KEY;
+  if (fixedPublishableKey) {
+    const pg = container.resolve(ContainerRegistrationKeys.PG_CONNECTION);
+    await pg("api_key")
+      .where({ id: publishableApiKey.id })
+      .update({
+        token: fixedPublishableKey,
+        redacted: `${fixedPublishableKey.slice(0, 6)}***${fixedPublishableKey.slice(-3)}`,
+      });
+  }
+
   try {
     await linkSalesChannelsToApiKeyWorkflow(container).run({
       input: {

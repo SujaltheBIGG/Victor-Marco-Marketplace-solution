@@ -55,13 +55,25 @@ The seed creates five demo sellers (`everyday@fleek.test`, `makersmoss@fleek.tes
 
 ## Deployment (Railway)
 
-Four services: PostgreSQL, Redis, **api** (`deploy/api.Dockerfile`) and **storefront** (`deploy/storefront.Dockerfile`). Set `RAILWAY_DOCKERFILE_PATH` on each app service to its Dockerfile.
+The whole marketplace runs as **one service behind one URL** (`deploy/Dockerfile`): the storefront at `/`, the seller hub at `/seller`, the admin at `/dashboard`, and the API routes, all behind a small gateway (`deploy/gateway.mjs`). PostgreSQL and Redis are Railway database add-ons.
 
-**api** variables: `DATABASE_URL`, `REDIS_URL`, `JWT_SECRET`, `COOKIE_SECRET`, `STORE_CORS` (storefront URL), `ADMIN_CORS` / `VENDOR_CORS` / `AUTH_CORS` (API URL, plus the storefront URL for `AUTH_CORS`), `FILE_BACKEND_URL` (`<api-url>/static`), `MERCUR_BACKEND_URL` (API URL, baked into the dashboards), `STOREFRONT_REVALIDATE_URL` (`<storefront-url>/api/revalidate`), `STOREFRONT_REVALIDATE_SECRET`, and optionally the `SEED_*` variables above.
+Service variables:
 
-**storefront** variables: `MEDUSA_BACKEND_URL`, `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY`, `NEXT_PUBLIC_BASE_URL`, `NEXT_PUBLIC_DEFAULT_REGION`, `NEXT_PUBLIC_VENDOR_URL` (`<api-url>/seller`), `NEXT_PUBLIC_ADMIN_URL` (`<api-url>/dashboard`), `REVALIDATE_SECRET` (same value as `STOREFRONT_REVALIDATE_SECRET`).
-
-After the first API deploy, seed once from the API container: `bunx medusa exec ./src/scripts/seed.ts`, then create the admin user with `bunx medusa user`.
+| Variable | Value |
+| --- | --- |
+| `RAILWAY_DOCKERFILE_PATH` | `deploy/Dockerfile` |
+| `PORT` | `8080` |
+| `PUBLIC_URL` | the service URL, e.g. `https://fleek.up.railway.app` |
+| `DATABASE_URL` / `REDIS_URL` | references to the Postgres and Redis add-ons |
+| `JWT_SECRET` / `COOKIE_SECRET` | long random strings |
+| `STORE_CORS`, `ADMIN_CORS`, `VENDOR_CORS`, `AUTH_CORS` | the service URL |
+| `FILE_BACKEND_URL` | `<service-url>/static` |
+| `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY` and `SEED_PUBLISHABLE_KEY` | the same `pk_…` value |
+| `STOREFRONT_REVALIDATE_URL` | `http://127.0.0.1:3000/api/revalidate` |
+| `STOREFRONT_REVALIDATE_SECRET` and `REVALIDATE_SECRET` | the same random value |
+| `SEED_ON_FIRST_BOOT` | `true` to load the demo catalog into an empty database |
+| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | admin account created on start if missing |
+| `SEED_SELLER_PASSWORD`, `SEED_EXTRA_SELLER_*` | optional demo seller settings |
 
 ## Project structure
 
