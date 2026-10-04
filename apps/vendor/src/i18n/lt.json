@@ -1,0 +1,43 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Vienas ar daugiau jūsų mokėjimų yra sisteminiai. Atminkite, kad Fleek netvarko tokių mokėjimų užfiksavimo ir grąžinimo."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Pasidalinkite naudojimo įžvalgomis ir padėkite mums tobulinti Fleek. Daugiau apie tai, ką renkame ir kaip tai naudojame, galite perskaityti mūsų <0>dokumentacijoje</0>."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Sukurkite slaptą API raktą, kad pasiekti Fleek API kaip autentifikuotas administratorius."
+    }
+  },
+  "login": {
+    "title": "Sveiki atvykę į Fleek"
+  },
+  "invite": {
+    "title": "Sveiki atvykę į Fleek",
+    "successHint": "Pradėkite naudotis Fleek administravimo aplinka nedelsiant.",
+    "successAction": "Paleisti Fleek administravimo aplinką"
+  },
+  "workflowExecutions": {
+    "subtitle": "Peržiūrėkite ir sekite darbo eigų vykdymą savo Fleek programoje."
+  },
+  "translations": {
+    "subtitle": "Tvarkykite savo duomenų vertimus „Fleek“ sistemoje"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Sveiki atvykę į Fleek"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "Prisijungti su Fleek"
+    }
+  }
+}

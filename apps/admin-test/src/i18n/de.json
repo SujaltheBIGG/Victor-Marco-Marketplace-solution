@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Eine oder mehrere Ihrer Zahlungen sind eine Systemzahlung. Beachten Sie, dass Fleek für solche Zahlungen keine Einziehungen und Rückerstattungen übernimmt."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Teilen Sie Nutzungseinblicke und helfen Sie uns, Fleek zu verbessern. Weitere Informationen darüber, was wir sammeln und wie wir es verwenden, finden Sie in unserer <0>Dokumentation</0>."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Erstellen Sie einen neuen geheimen API-Schlüssel, um als authentifizierter Admin-Benutzer auf die Fleek-API zuzugreifen."
+    }
+  },
+  "login": {
+    "title": "Willkommen bei Fleek"
+  },
+  "invite": {
+    "title": "Willkommen bei Fleek",
+    "successHint": "Beginnen Sie sofort mit Fleek Admin.",
+    "successAction": "Starten Sie Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Sehen Sie sich Workflow-Ausführungen in Ihrer Fleek-Anwendung an und verfolgen Sie sie."
+  }
+}

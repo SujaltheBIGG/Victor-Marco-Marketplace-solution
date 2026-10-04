@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Uno o più dei tuoi pagamenti è un pagamento di sistema. Tieni presente che le catt ure e i rimborsi non sono gestiti da Fleek per tali pagamenti."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Condividi analisi sull'utilizzo e aiutaci a migliorare Fleek. Puoi leggere di più su cosa raccogliamo e come lo utilizziamo nella <0>documentazione</0>."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Crea una nuova chiave API segreta per accedere all'API Fleek come utente amministratore autenticato."
+    }
+  },
+  "login": {
+    "title": "Benvenuto in Fleek"
+  },
+  "invite": {
+    "title": "Benvenuto in Fleek",
+    "successHint": "Inizia subito con Fleek Admin.",
+    "successAction": "Inizia Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Visualizza e tieni traccia delle esecuzioni dei flussi di lavoro nella tua applicazione Fleek."
+  }
+}

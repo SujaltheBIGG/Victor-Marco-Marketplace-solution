@@ -1,0 +1,46 @@
+{
+  "customFields": {
+    "title": "Custom Fields",
+    "description": "Manage your custom fields and configurations",
+    "noFields": "No custom fields configured yet"
+  },
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "One or more of your payments is a system payment. Be aware, that captures and refunds are not handled by Fleek for such payments."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Share usage insights and help us improve Fleek. You can read more about what we collect and how we use it in our <0>documentation</0>."
+    }
+  },
+  "translations": {
+    "subtitle": "Manage translations of your data in Fleek"
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Create a new secret API key to access the Fleek API as an authenticated admin user."
+    }
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Welcome to Fleek"
+      }
+    }
+  },
+  "workflowExecutions": {
+    "subtitle": "View and keep track of workflow executions in your Fleek application."
+  },
+  "auth": {
+    "login": {
+      "cloud": "Log in with Fleek"
+    }
+  },
+  "register": {
+    "hint": "Enter your details and create a password to set up your seller account."
+  },
+  "login": {
+    "hint": "Log in to your seller account. New stores can sign in once Fleek has approved them."
+  }
+}

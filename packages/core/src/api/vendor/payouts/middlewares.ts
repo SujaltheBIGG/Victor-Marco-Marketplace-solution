@@ -1,0 +1,52 @@
+import { requirePermission } from "../../utils"
+import {
+  AuthenticatedMedusaRequest,
+  maybeApplyLinkFilter,
+  MedusaNextFunction,
+  MedusaResponse,
+  MiddlewareRoute,
+} from "@medusajs/framework/http"
+import { validateAndTransformQuery } from "@medusajs/framework"
+
+import { vendorPayoutQueryConfig } from "./query-config"
+import { VendorGetPayoutParams, VendorGetPayoutsParams } from "./validators"
+
+const applySellerPayoutLinkFilter = (
+  req: AuthenticatedMedusaRequest,
+  res: MedusaResponse,
+  next: MedusaNextFunction
+) => {
+  req.filterableFields.seller_id = req.seller_context!.seller_id
+
+  return maybeApplyLinkFilter({
+    entryPoint: "payout_seller",
+    resourceId: "payout_id",
+    filterableField: "seller_id",
+  })(req, res, next)
+}
+
+export const vendorPayoutsMiddlewares: MiddlewareRoute[] = [
+  {
+    method: ["GET"],
+    matcher: "/vendor/payouts",
+    middlewares: [
+      requirePermission("payouts", "view"),
+      validateAndTransformQuery(
+        VendorGetPayoutsParams,
+        vendorPayoutQueryConfig.list
+      ),
+      applySellerPayoutLinkFilter,
+    ],
+  },
+  {
+    method: ["GET"],
+    matcher: "/vendor/payouts/:id",
+    middlewares: [
+      requirePermission("payouts", "view"),
+      validateAndTransformQuery(
+        VendorGetPayoutParams,
+        vendorPayoutQueryConfig.retrieve
+      ),
+    ],
+  },
+]

@@ -1,0 +1,14 @@
+{
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Vytvořte nový tajný API klíč pro přístup k Fleek API jako autentizovaný administrativní uživatel."
+    }
+  },
+  "invite": {
+    "successHint": "Začněte s Fleek Admin hned teď.",
+    "successAction": "Začít Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Zobrazit a sledovat provádění pracovních postupů ve vaší aplikaci Fleek."
+  }
+}

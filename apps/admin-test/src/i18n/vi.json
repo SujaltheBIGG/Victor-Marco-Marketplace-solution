@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Một hoặc nhiều khoản thanh toán của bạn là thanh toán hệ thống. Lưu ý rằng việc ghi nhận và hoàn tiền không được Fleek xử lý cho các khoản thanh toán này."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Chia sẻ thông tin sử dụng để giúp chúng tôi cải thiện Fleek. Bạn có thể đọc thêm về những gì chúng tôi thu thập và cách sử dụng trong <0>tài liệu</0> của chúng tôi."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Tạo một khóa API bí mật mới để truy cập API Fleek với tư cách người dùng quản trị đã xác thực."
+    }
+  },
+  "login": {
+    "title": "Chào mừng đến với Fleek"
+  },
+  "invite": {
+    "title": "Chào mừng đến với Fleek",
+    "successHint": "Bắt đầu ngay với Fleek Admin.",
+    "successAction": "Khởi động Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Xem và theo dõi các lần thực thi luồng công việc trong ứng dụng Fleek của bạn."
+  }
+}

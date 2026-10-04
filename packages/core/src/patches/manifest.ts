@@ -1,0 +1,51 @@
+export interface PatchEntry {
+  /** Patch file under `patches/`, named `<package>@<generated-from-version>.patch`. */
+  file: string
+  package: string
+  /**
+   * Versions the patch is allowed to be attempted against. Applying is still
+   * gated on the diff's own context matching — this range only produces a
+   * clearer error than a failed hunk when a bump is known to be incompatible.
+   */
+  compatible: { from: string; to: string }
+  /** Surfaced in boot logs and in the error raised when the patch stops applying. */
+  reason: string
+}
+
+export const PATCHES: PatchEntry[] = [
+  {
+    file: "@medusajs+core-flows@2.18.0.patch",
+    package: "@medusajs/core-flows",
+    // Both targeted files are byte-identical from 2.17.2 through 2.21.0.
+    compatible: { from: "2.17.0", to: "2.22.0" },
+    reason:
+      "refreshCartShippingMethodsWorkflow deletes any shipping method whose " +
+      "profile is not required by a cart item, deriving that set from each " +
+      "item's master product. In Mercur the profile belongs to the offer — the " +
+      "product link is one-to-one and the first offerer wins it — so in a " +
+      "multi-seller cart holding a co-sold product every other seller's method " +
+      "is judged orphaned and checkout fails. The patch disables that cleanup. " +
+      "See mercurjs/mercur#1442.",
+  },
+  {
+    file: "@medusajs+core-flows@2.21.0-payment-hooks.patch",
+    package: "@medusajs/core-flows",
+    // Both targeted workflows are unchanged from 2.18.0 through 2.21.0.
+    compatible: { from: "2.18.0", to: "2.22.0" },
+    reason:
+      "capturePaymentWorkflow and refundPaymentWorkflow end in an event and expose no " +
+      "hook, unlike createOrderWorkflow and cancelOrderWorkflow. A ledger that must " +
+      "record every capture and refund inside the movement's own transaction, with " +
+      "compensation, needs paymentCaptured and paymentRefunded.",
+  },
+  {
+    file: "@medusajs+core-flows@2.20.1-delivery-hook.patch",
+    package: "@medusajs/core-flows",
+    compatible: { from: "2.18.0", to: "2.22.0" },
+    reason:
+      "markOrderFulfillmentAsDeliveredWorkflow ends in an event and exposes no hook. " +
+      "Delivery is where a marketplace releases the seller's money from pending to " +
+      "payable, and that release must run in the delivery's own transaction, with " +
+      "compensation, so it needs fulfillmentDelivered.",
+  },
+]

@@ -1,0 +1,29 @@
+{
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Utwórz nowy tajny klucz API, aby uzyskać dostęp do API Fleek jako uwierzytelniony użytkownik administracyjny."
+    }
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Witamy w Fleek"
+      }
+    }
+  },
+  "invite": {
+    "title": "Witamy w Fleek",
+    "successHint": "Zacznij od razu z Fleek Admin."
+  },
+  "workflowExecutions": {
+    "subtitle": "Przeglądaj i śledź wykonania przepływu pracy w aplikacji Fleek."
+  },
+  "translations": {
+    "subtitle": "Zarządzaj tłumaczeniami swoich danych w Fleek"
+  },
+  "auth": {
+    "login": {
+      "cloud": "Zaloguj się przez Fleek"
+    }
+  }
+}

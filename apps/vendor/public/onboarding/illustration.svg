@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" fill="none">
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0V60" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#eca43b" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#eca43b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="#090909"/>
+  <rect width="1200" height="1500" fill="url(#grid)"/>
+  <rect width="1200" height="1500" fill="url(#glow)"/>
+  <text x="600" y="500" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" letter-spacing="8" fill="#eca43b">SELLER HUB</text>
+  <g transform="translate(222 530) scale(6)" fill="#ffffff">
+    <path d="M13.7349 32H8V8H25.9978V12.8593H13.7349V17.4815H24.8996V22.3407H13.7349V32Z"/>
+    <path d="M29.0554 32V8H34.7903V27.1407H47.2362V32H29.0554Z"/>
+    <path d="M68.6996 32H50.3968V8H68.6996V12.8593H56.1317V17.1852H67.6015V21.9259H56.1317V27.1407H68.6996V32Z"/>
+    <path d="M90.9704 32H72.6676V8H90.9704V12.8593H78.4025V17.1852H89.8723V21.9259H78.4025V27.1407H90.9704V32Z"/>
+    <path d="M94.9384 32V8H100.673V17.2444H100.795L110.801 8H117.817L107.201 17.6889L118 32H111.228L103.175 21.1556L100.673 23.1111V32H94.9384Z"/>
+  </g>
+  <rect x="540" y="782" width="120" height="4" fill="#eca43b"/>
+  <text x="600" y="862" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="26" letter-spacing="6" fill="#ffffff" fill-opacity="0.7">INDEPENDENT SELLERS · ONE CHECKOUT</text>
+</svg>

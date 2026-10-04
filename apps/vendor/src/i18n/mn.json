@@ -1,0 +1,43 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Таны төлбөрүүдийн нэг эсвэл хэд хэдэн нь системийн төлбөр байна. Ийм төлбөрүүдийн хувьд Fleek баримтлалыг ашиглахгүй гэдгийг анхаарна уу."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Ашиглалтын ойлголтуудыг хуваалцаж, Fleek-г сайжруулахад тусална уу. Бид юуг цуглуулдаг, хэрхэн ашигладаг талаар <0>баримт бичиг</0> дотроос уншиж болно."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Баталгаажсан админ хэрэглэгчийн хувьд Fleek API-д хандах шинэ нууц API түлхүүр үүсгэх."
+    }
+  },
+  "login": {
+    "title": "Fleek-д тавтай морилно уу"
+  },
+  "invite": {
+    "title": "Fleek-д тавтай морилно уу",
+    "successHint": "Fleek Админтай шууд эхлээрэй.",
+    "successAction": "Fleek Админ Эхлүүлэх"
+  },
+  "workflowExecutions": {
+    "subtitle": "Таны Fleek програмд ​​ажлын урсгалуудыг харах, хянах."
+  },
+  "translations": {
+    "subtitle": "Fleek доторх өгөгдлийнхөө орчуулгыг удирдах"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Fleek-т тавтай морил"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "Fleek-р нэвтрэх"
+    }
+  }
+}

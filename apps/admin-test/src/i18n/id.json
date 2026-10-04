@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Satu atau lebih pembayaran Anda adalah pembayaran sistem. Perlu diketahui, pengambilan dan pengembalian dana tidak ditangani oleh Fleek untuk pembayaran tersebut."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Bagikan wawasan penggunaan dan bantu kami meningkatkan Fleek. Anda dapat membaca lebih lanjut tentang apa yang kami kumpulkan dan bagaimana kami menggunakannya di <0>dokumentasi</0> kami."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Buat kunci API rahasia baru untuk mengakses Fleek API sebagai pengguna admin terautentikasi."
+    }
+  },
+  "login": {
+    "title": "Selamat datang di Fleek"
+  },
+  "invite": {
+    "title": "Selamat datang di Fleek",
+    "successHint": "Mulai gunakan Fleek Admin sekarang juga.",
+    "successAction": "Mulai Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Lihat dan pantau eksekusi alur kerja di aplikasi Fleek Anda."
+  }
+}

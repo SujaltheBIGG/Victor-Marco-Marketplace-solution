@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Een of meer van uw betalingen is een systeembetaling. Houd er rekening mee dat incasso's en terugbetalingen niet door Fleek worden afgehandeld voor dergelijke betalingen."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Deel gebruiksstatistieken en help ons Fleek te verbeteren. U kunt meer lezen over wat we verzamelen en hoe we het gebruiken in onze <0>documentatie</0>."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Maak een nieuwe geheime API-sleutel aan om toegang te krijgen tot de Fleek API als een geauthenticeerde admin gebruiker."
+    }
+  },
+  "login": {
+    "title": "Welkom bij Fleek"
+  },
+  "invite": {
+    "title": "Welkom bij Fleek",
+    "successHint": "Begin meteen met Fleek Admin.",
+    "successAction": "Start Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Bekijk en houd workflow-uitvoeringen in uw Fleek-applicatie bij."
+  }
+}

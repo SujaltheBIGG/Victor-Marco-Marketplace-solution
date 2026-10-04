@@ -1,0 +1,43 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "您的一个或多个支付是系统支付。请注意，Fleek 不会处理此类支付的收取和退款。"
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "分享使用见解并帮助我们改进 Fleek。您可以在我们的 <0>文档</0> 中了解更多关于我们收集和使用数据的信息。"
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "创建新的秘密API密钥以访问Fleek API作为认证的管理员用户。"
+    }
+  },
+  "login": {
+    "title": "欢迎使用Fleek"
+  },
+  "invite": {
+    "title": "欢迎使用Fleek",
+    "successHint": "立即开始使用Fleek Admin。",
+    "successAction": "开始Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "查看和跟踪您的 Fleek 应用程序中的工作流执行情况。"
+  },
+  "translations": {
+    "subtitle": "管理 Fleek 中数据的翻译"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "欢迎使用 Fleek"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "使用 Fleek 登录"
+    }
+  }
+}

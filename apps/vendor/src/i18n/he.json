@@ -1,0 +1,43 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "אחד או יותר מהתשלומים שלך הוא תשלום מערכת. שים לב, תפיסות והחזרים אינם מנוהלים על ידי Fleek עבור תשלומים אלו."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "שתף תובנות שימוש ועזור לנו לשפר את Fleek. ניתן לקרוא עוד על מה אנו אוספים ואיך אנו משתמשים בזה ב<0>התיעוד</0> שלנו."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "צור מפתח API סודי חדש לגישה ל-Fleek API כמשתמש מנהל מאומת."
+    }
+  },
+  "login": {
+    "title": "ברוכים הבאים ל-Fleek"
+  },
+  "invite": {
+    "title": "ברוכים הבאים ל-Fleek",
+    "successHint": "התחל להשתמש ב-Fleek Admin מיד.",
+    "successAction": "התחל עם Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "צפה ועקוב אחר ביצועי תהליך העבודה באפליקציית Fleek שלך."
+  },
+  "translations": {
+    "subtitle": "נהל תרגומים של הנתונים שלך ב-Fleek"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "ברוך הבא ל-Fleek"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "התחבר עם Fleek"
+    }
+  }
+}

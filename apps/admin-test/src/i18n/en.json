@@ -1,0 +1,47 @@
+{
+  "customFields": {
+    "title": "Custom Fields",
+    "description": "Manage your custom fields and configurations",
+    "noFields": "No custom fields configured yet"
+  },
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "One or more of your payments is a system payment. Be aware, that captures and refunds are not handled by Fleek for such payments."
+    }
+  },
+  "promotions": {
+    "fields": {
+      "platformOwner": "Fleek"
+    }
+  },
+  "campaigns": {
+    "fields": {
+      "platformOwner": "Fleek"
+    }
+  },
+  "priceLists": {
+    "fields": {
+      "owner": {
+        "marketplace": "Fleek"
+      }
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Share usage insights and help us improve Fleek. You can read more about what we collect and how we use it in our <0>documentation</0>."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Create a new secret API key to access the Fleek API as an authenticated admin user."
+    }
+  },
+  "invite": {
+    "title": "Welcome to Fleek Admin Panel",
+    "successHint": "Get started with Fleek Admin right away.",
+    "successAction": "Start Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "View and keep track of workflow executions in your Fleek application."
+  }
+}

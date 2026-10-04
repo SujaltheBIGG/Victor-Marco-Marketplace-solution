@@ -1,0 +1,178 @@
+import { usePermissions } from "@mercurjs/dashboard-shared"
+import { useTranslation } from "react-i18next"
+
+import type { Filter } from "../../../components/table/data-table"
+import { useRegions } from "../../api/regions"
+import { useSalesChannels } from "../../api/sales-channels"
+
+export const useOrderTableFilters = (): Filter[] => {
+  const { t } = useTranslation()
+  const { can } = usePermissions()
+  const canViewRegions = can("regions")
+  const canViewSalesChannels = can("sales_channels")
+
+  const { regions } = useRegions(
+    {
+      limit: 1000,
+      fields: "id,name",
+    },
+    { enabled: canViewRegions }
+  )
+
+  const { sales_channels } = useSalesChannels(
+    {
+      limit: 1000,
+      fields: "id,name",
+    },
+    { enabled: canViewSalesChannels }
+  )
+
+  const statusFilter: Filter = {
+    key: "status",
+    label: t("fields.status"),
+    type: "select",
+    multiple: true,
+    options: [
+      { label: t("orders.status.pending"), value: "pending" },
+      { label: t("orders.status.completed"), value: "completed" },
+      { label: t("orders.status.requires_action"), value: "requires_action" },
+      { label: t("orders.status.canceled"), value: "canceled" },
+    ],
+  }
+
+  let filters: Filter[] = [statusFilter]
+
+  if (regions && canViewRegions) {
+    const regionFilter: Filter = {
+      key: "region_id",
+      label: t("fields.region"),
+      type: "select",
+      options: regions.map((r) => ({
+        label: r.name,
+        value: r.id,
+      })),
+      multiple: true,
+      searchable: true,
+    }
+
+    filters = [...filters, regionFilter]
+  }
+
+  if (sales_channels && canViewSalesChannels) {
+    const salesChannelFilter: Filter = {
+      key: "sales_channel_id",
+      label: t("fields.salesChannel"),
+      type: "select",
+      multiple: true,
+      searchable: true,
+      options: sales_channels.map((s) => ({
+        label: s.name,
+        value: s.id,
+      })),
+    }
+
+    filters = [...filters, salesChannelFilter]
+  }
+
+  // Commented out as it's not used yet. Seems it might be helpful in future
+  // const paymentStatusFilter: Filter = {
+  //   key: "payment_status",
+  //   label: t("orders.payment.statusLabel"),
+  //   type: "select",
+  //   multiple: true,
+  //   options: [
+  //     {
+  //       label: t("orders.payment.status.notPaid"),
+  //       value: "not_paid",
+  //     },
+  //     {
+  //       label: t("orders.payment.status.awaiting"),
+  //       value: "awaiting",
+  //     },
+  //     {
+  //       label: t("orders.payment.status.captured"),
+  //       value: "captured",
+  //     },
+  //     {
+  //       label: t("orders.payment.status.refunded"),
+  //       value: "refunded",
+  //     },
+  //     {
+  //       label: t("orders.payment.status.partiallyRefunded"),
+  //       value: "partially_refunded",
+  //     },
+  //     {
+  //       label: t("orders.payment.status.canceled"),
+  //       value: "canceled",
+  //     },
+  //     {
+  //       label: t("orders.payment.status.requiresAction"),
+  //       value: "requires_action",
+  //     },
+  //   ],
+  // }
+
+  // const fulfillmentStatusFilter: Filter = {
+  //   key: "fulfillment_status",
+  //   label: t("orders.fulfillment.statusLabel"),
+  //   type: "select",
+  //   multiple: true,
+  //   options: [
+  //     {
+  //       label: t("orders.fulfillment.status.notFulfilled"),
+  //       value: "not_fulfilled",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.fulfilled"),
+  //       value: "fulfilled",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.partiallyFulfilled"),
+  //       value: "partially_fulfilled",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.returned"),
+  //       value: "returned",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.partiallyReturned"),
+  //       value: "partially_returned",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.shipped"),
+  //       value: "shipped",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.partiallyShipped"),
+  //       value: "partially_shipped",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.canceled"),
+  //       value: "canceled",
+  //     },
+  //     {
+  //       label: t("orders.fulfillment.status.requiresAction"),
+  //       value: "requires_action",
+  //     },
+  //   ],
+  // }
+
+  const dateFilters: Filter[] = [
+    { label: "Created At", key: "created_at" },
+    { label: "Updated At", key: "updated_at" },
+  ].map((f) => ({
+    key: f.key,
+    label: f.label,
+    type: "date",
+  }))
+
+  filters = [
+    ...filters,
+    // TODO: enable when Payment, Fulfillments <> Orders are linked
+    // paymentStatusFilter,
+    // fulfillmentStatusFilter,
+    ...dateFilters,
+  ]
+
+  return filters
+}

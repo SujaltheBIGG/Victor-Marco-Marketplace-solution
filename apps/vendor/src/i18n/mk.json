@@ -1,0 +1,17 @@
+{
+  "translations": {
+    "subtitle": "Управувајте со преводите на вашите податоци во Fleek"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Добредојдовте во Fleek"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "Најави се со Fleek"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Ödemelerinizden biri bir sistem ödemesidir. Bu tür ödemeler için işlemler Fleek tarafından yönetilmez."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Kullanım istatistiklerini paylaşarak Fleek'nın iyileştirilmesine yardımcı olun. Topladığımız bilgiler ve nasıl kullandığımız hakkında daha fazla bilgiye <0>dokümantasyonda</0> ulaşabilirsiniz."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Doğrulanmış bir yönetici kullanıcısı olarak Fleek API'ye erişmek için yeni bir gizli API anahtarı oluşturun."
+    }
+  },
+  "login": {
+    "title": "Fleek'ya Hoş Geldiniz"
+  },
+  "invite": {
+    "title": "Fleek'ya Hoş Geldiniz",
+    "successHint": "Hemen Fleek Yönetici ile başlayın.",
+    "successAction": "Fleek Yöneticiye Başla"
+  },
+  "workflowExecutions": {
+    "subtitle": "Fleek uygulamanızdaki iş akışı yürütmelerini görüntüleyin ve takip edin."
+  }
+}

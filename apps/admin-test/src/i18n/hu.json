@@ -1,0 +1,19 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Az Ön fizetései közül egy vagy több rendszerfizetés. Vegye figyelembe, hogy a beszedéseket és visszatérítéseket a Fleek nem kezeli az ilyen fizetések esetében."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Hozzon létre egy új titkos API kulcsot, hogy hozzáférjen a Fleek API-hoz hitelesített adminisztrátorként."
+    }
+  },
+  "invite": {
+    "successHint": "Kezdje el azonnal használni a Fleek Admin-t.",
+    "successAction": "Fleek Admin indítása"
+  },
+  "workflowExecutions": {
+    "subtitle": "Tekintse meg és kövesse nyomon a munkafolyamat végrehajtásokat a Fleek alkalmazásában."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "您的一個或多個付款是系統付款。請注意，此類付款的收取和退款不由 Fleek 處理。"
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "分享使用情況並幫助我們改進 Fleek。您可以在我們的<0>說明文件</0>中閱讀更多關於我們收集的內容以及如何使用的資訊。"
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "建立新的私密 API 金鑰以作為已驗證管理員存取 Fleek API。"
+    }
+  },
+  "login": {
+    "title": "歡迎使用 Fleek"
+  },
+  "invite": {
+    "title": "歡迎使用 Fleek",
+    "successHint": "立即開始使用 Fleek 管理後臺。",
+    "successAction": "啟動 Fleek 管理後臺"
+  },
+  "workflowExecutions": {
+    "subtitle": "檢視並追蹤您 Fleek 應用程式中的工作流程執行情況。"
+  },
+  "translations": {
+    "subtitle": "管理您在 Fleek 中資料的翻譯"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "歡迎使用 Fleek"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "使用 Fleek 登入"
+    }
+  }
+}

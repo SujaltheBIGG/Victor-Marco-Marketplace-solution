@@ -1,0 +1,43 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "1つ以上の支払いがシステム支払いです。このような支払いの取り込みと返金はFleekでは処理されないことに注意してください。"
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "使用状況のインサイトを共有し、Fleekの改善にご協力ください。収集内容やその使用方法については、<0>ドキュメント</0>をご覧ください。"
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "認証された管理者ユーザーとしてFleek APIにアクセスするための新しい秘密のAPIキーを作成します。"
+    }
+  },
+  "login": {
+    "title": "Fleekへようこそ"
+  },
+  "invite": {
+    "title": "Fleekへようこそ",
+    "successHint": "Fleek Adminをすぐに始めましょう。",
+    "successAction": "Fleek Adminを開始"
+  },
+  "workflowExecutions": {
+    "subtitle": "Fleekアプリケーションでのワークフロー実行を表示し、追跡します。"
+  },
+  "translations": {
+    "subtitle": "Fleek内のデータの翻訳を管理します"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Fleekへようこそ"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "Fleekでログイン"
+    }
+  }
+}

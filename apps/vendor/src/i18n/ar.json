@@ -1,0 +1,32 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "واحدة أو أكثر من دفعاتك هي دفعة نظام. كن على علم بأن الاستلام والاسترداد لا يتم التعامل معها بواسطة Fleek لمثل هذه الدفعات."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "شارك رؤى الاستخدام وساعدنا في تحسين Fleek. يمكنك قراءة المزيد حول ما نجمعه وكيف نستخدمه في <0>التوثيق</0>."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "إنشاء مفتاح API سري جديد للوصول إلى API Fleek كمستخدم إداري مصادق."
+    }
+  },
+  "translations": {
+    "subtitle": "أدر ترجمات بياناتك في Fleek"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "مرحبًا بك في Fleek"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "تسجيل الدخول باستخدام Fleek"
+    }
+  }
+}

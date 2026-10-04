@@ -1,0 +1,23 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "Jedna ili više vaših uplata je sistenska uplata. Budite svjesni da Fleek ne upravlja obradom uplata i povrata za takve uplate."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Kreirajte novi tajni API ključ za pristup Fleek API-ju kao autentifikovani administrativni korisnik."
+    }
+  },
+  "login": {
+    "title": "Dobrodošli u Fleek"
+  },
+  "invite": {
+    "title": "Dobrodošli u Fleek",
+    "successHint": "Počnite odmah s Fleek Admin.",
+    "successAction": "Započnite Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Pregledajte i pratite izvršenja radnih tokova u vašoj Fleek aplikaciji."
+  }
+}

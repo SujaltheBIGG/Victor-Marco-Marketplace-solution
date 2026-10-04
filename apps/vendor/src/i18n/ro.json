@@ -1,0 +1,38 @@
+{
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "Distribuiți informații despre utilizare și ajutați-ne să îmbunătățim Fleek.  <0>documentare</0>."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "Creați o nouă cheie API secretă pentru a accesa API-ul Fleek ca utilizator administrator autentificat."
+    }
+  },
+  "login": {
+    "title": "Bun venit la Fleek"
+  },
+  "invite": {
+    "title": "Bun venit la Fleek",
+    "successHint": "Începeți imediat cu Fleek Admin.",
+    "successAction": "Porniți Fleek Admin"
+  },
+  "workflowExecutions": {
+    "subtitle": "Vizualizați și urmăriți execuțiile fluxului de lucru în aplicația dvs. Fleek."
+  },
+  "translations": {
+    "subtitle": "Gestionați traducerile datelor dumneavoastră în Fleek"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Bine ați venit la Fleek"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "Autentificare cu Fleek"
+    }
+  }
+}

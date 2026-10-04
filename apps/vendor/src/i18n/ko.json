@@ -1,0 +1,43 @@
+{
+  "orders": {
+    "refund": {
+      "systemPaymentDesc": "결제 중 하나 이상이 시스템 결제입니다. 이러한 결제의 경우 캡처 및 환불은 Fleek에서 처리되지 않습니다."
+    }
+  },
+  "profile": {
+    "edit": {
+      "usageInsightsHint": "사용 인사이트를 공유하고 Fleek를 개선하는 데 도움을 주세요. 우리가 수집하는 내용과 그 사용 방법에 대한 자세한 내용은 <0>문서</0>에서 확인할 수 있습니다."
+    }
+  },
+  "apiKeyManagement": {
+    "create": {
+      "createSecretHint": "인증된 관리자 사용자로 Fleek API에 접근하기 위한 새 비밀 API 키를 생성합니다."
+    }
+  },
+  "login": {
+    "title": "Fleek에 오신 것을 환영합니다"
+  },
+  "invite": {
+    "title": "Fleek에 오신 것을 환영합니다",
+    "successHint": "지금 바로 Fleek 관리자를 시작하세요.",
+    "successAction": "Fleek 관리자 시작"
+  },
+  "workflowExecutions": {
+    "subtitle": "Fleek 애플리케이션의 워크플로우 실행을 보고 추적합니다."
+  },
+  "translations": {
+    "subtitle": "Fleek 내 데이터 번역을 관리하세요"
+  },
+  "onboarding": {
+    "wizard": {
+      "preview": {
+        "title": "Fleek에 오신 것을 환영합니다"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "cloud": "Fleek로 로그인"
+    }
+  }
+}
