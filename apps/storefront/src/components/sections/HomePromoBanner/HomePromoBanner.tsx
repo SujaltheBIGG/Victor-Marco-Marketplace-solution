@@ -5,7 +5,7 @@ export const HomePromoBanner = () => (
   <section className="mx-auto w-full max-w-screen-xl px-4 py-6 sm:px-6" data-testid="home-promo-banner">
     <div className="relative overflow-hidden bg-graphite px-8 py-12 text-on-graphite sm:px-12 sm:py-14">
       <Image
-        src="/images/home/promo-bg.jpeg"
+        src="/images/home/sell-banner.jpg"
         alt=""
         fill
         sizes="(min-width: 1280px) 1232px, 100vw"

@@ -10,14 +10,14 @@ export const HomeHero = () => (
     data-testid="home-hero"
   >
     <Image
-      src="/images/home/hero-desk-v3.jpeg"
+      src="/images/home/hero-marketplace.jpg"
       alt=""
       fill
       priority
       sizes="100vw"
-      className="hidden object-cover object-center sm:block"
+      className="hidden object-cover object-center lg:block"
     />
-    <div className="relative mx-auto flex max-w-screen-xl items-center px-4 py-10 sm:min-h-[26rem] sm:px-6 sm:py-14 lg:min-h-[34rem]">
+    <div className="relative mx-auto flex max-w-screen-xl items-center px-4 py-10 sm:px-6 sm:py-14 lg:min-h-[34rem]">
       <div className="max-w-xl">
         <span className="inline-flex items-center gap-2 text-eyebrow font-medium uppercase tracking-[0.12em] text-accent">
           <span aria-hidden className="size-1.5 rounded-full bg-cta" />
@@ -52,9 +52,9 @@ export const HomeHero = () => (
         </div>
       </div>
     </div>
-    <div className="relative aspect-[16/10] w-full sm:hidden">
+    <div className="relative aspect-[16/10] w-full sm:aspect-[2/1] lg:hidden">
       <Image
-        src="/images/home/hero-desk-v3.jpeg"
+        src="/images/home/hero-marketplace.jpg"
         alt=""
         fill
         sizes="100vw"

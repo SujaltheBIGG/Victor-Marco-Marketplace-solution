@@ -114,7 +114,7 @@ export async function Footer() {
           data-testid="footer-copyright"
         >
           <p className="text-body">© {new Date().getFullYear()} Fleek</p>
-          <p className="text-body">Marketplace powered by independent sellers</p>
+          <p className="text-body">Designed & Powered by Fastcreek AI</p>
         </div>
       </div>
     </footer>
